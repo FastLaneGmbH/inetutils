@@ -1057,7 +1057,7 @@ set_escape_char (char *s)
   else
     {
       escape = (s && *s) ? special (s) : _POSIX_VDISABLE;
-      printf ("Telnet escape character is '%s'.\n", control (escape));
+      //printf ("Telnet escape character is '%s'.\n", control (escape));
     }
 }
 
@@ -1516,7 +1516,7 @@ setescape (int argc, char *argv[])
     escape = arg[0];
   if (!In3270)
     {
-      printf ("Escape character is '%s'.\n", control (escape));
+      //printf ("Escape character is '%s'.\n", control (escape));
     }
   fflush (stdout);
   return 1;
@@ -2350,7 +2350,7 @@ status (int argc, char *argv[])
 {
   if (connected)
     {
-      printf ("Connected to %s.\n", hostname);
+      //printf ("Connected to %s.\n", hostname);
       if ((argc < 2) || strcmp (argv[1], "notmuch"))
 	{
 	  int mode = getconnmode ();
@@ -2390,12 +2390,12 @@ status (int argc, char *argv[])
       printf ("No connection.\n");
     }
 #if !defined TN3270
-  printf ("Escape character is '%s'.\n", control (escape));
+  //printf ("Escape character is '%s'.\n", control (escape));
   fflush (stdout);
 #else /* !defined(TN3270) */
   if ((!In3270) && ((argc < 2) || strcmp (argv[1], "notmuch")))
     {
-      printf ("Escape character is '%s'.\n", control (escape));
+      //printf ("Escape character is '%s'.\n", control (escape));
     }
 # if defined unix || defined __unix || defined __unix__
   if ((argc >= 2) && !strcmp (argv[1], "everything"))
@@ -2659,7 +2659,7 @@ tn (int argc, char *argv[])
 	  return 0;
 	}
 
-      printf ("Trying %s...\n", buf);
+      //printf ("Trying %s...\n", buf);
 
       net = socket (aip->ai_family, SOCK_STREAM, 0);
       if (net < 0)
